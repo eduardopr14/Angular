@@ -1,41 +1,26 @@
-var myNinjaApp = angular.module('myNinjaApp', []);
+var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
 
-myNinjaApp.config(function(){
-
-});
+myNinjaApp.config(['$routeProvider', function($routeProvider){
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'view/home.html'
+        })
+        .when('/directory', {
+            templateUrl: 'view/directory.html',
+            controller: 'NinjaController'
+        })
+        .otherwise({
+            redirect: '/home'
+        });
+}]);
 
 myNinjaApp.run(function(){
 
 });
 
-myNinjaApp.controller('NinjaController', ['$scope', function($scope){
+myNinjaApp.controller('NinjaController', ['$scope', '$http', function($scope, $http){
 
-    $scope.ninjas = [
-        {
-            name: "Yoshi",
-            belt: "Green",
-            rate: 50,
-            available: true
-        },
-        {
-            name: "Crystal",
-            belt: "Purple",
-            rate: 30,
-            available: true
-        },
-        {
-            name: "Ryu",
-            belt: "Orange",
-            rate: 10,
-            available: false
-        },
-        {
-            name: "Shaun",
-            belt: "Black",
-            rate: 100,
-            available: true
-        }
-    ]
+    // console.log(angular.toJson($scope.ninjas));
 
     $scope.removeNinja = function(ninja){
         var removedNinja = $scope.ninjas.indexOf(ninja);
@@ -53,5 +38,9 @@ myNinjaApp.controller('NinjaController', ['$scope', function($scope){
         $scope.newninja.belt = "";
         $scope.newninja.rate = "";
     }
+
+    $http.get('data/ninjas.json').success(function(data){
+        $scope.ninjas = data;
+    });
 
 }]);

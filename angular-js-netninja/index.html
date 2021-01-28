@@ -8,33 +8,7 @@
   </head>
   <body>
     <header ng-include="'header.html'"></header>
-    <div class="content">
-      <div ng-controller="NinjaController">
-
-        <button ng-click="order = 'name'">Order By Name</button>
-        <button ng-click="order = 'belt'">Order By Belt</button>
-
-        <input type="text" ng-model="search" placeholder="Search for a Ninja" />
-        <ul>
-          <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" 
-              ng-show="ninja.available"> 
-              <!-- ng-hide faz o contrário, se for true, elemento = hide -->
-              <h3>{{ ninja.name }} - {{ ninja.rate | currency }}</h3> <!-- currency: '£' -->
-              <div class="remove" ng-click="removeNinja(ninja)">x</div>
-              <span class="belt" style="background: {{ninja.belt}}">{{ ninja.belt }} Belt</span>
-          </li>
-          <!-- orderBy: '-belt' ordena inversamente -->
-        </ul>
-
-        <form ng-submit="addNinja()">
-          <input type="text" placeholder="name" ng-model="newninja.name" />
-          <input type="text" placeholder="belt" ng-model="newninja.belt" />
-          <input type="text" placeholder="rate" ng-model="newninja.rate" />
-          <input type="submit" value="Add New Ninja" />
-        </form>
-
-      </div>
-    </div>
+    <main ng-view></main>
 
   </body>
 </html>
