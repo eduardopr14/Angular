@@ -5,7 +5,12 @@ import java.util.Scanner;
 public class ReadingWebPage {
    public static void main(String args[]) throws IOException {
 
-      System.out.println(Arrays.toString(getStats("https://www.basketball-reference.com/players/d/doncilu01.html")));
+      System.out.println("Luka Doncic - " + Arrays.toString(getStats("https://www.basketball-reference.com/players/d/doncilu01.html")));
+      System.out.println("Stephen Curry - " + Arrays.toString(getStats("https://www.basketball-reference.com/players/c/curryst01.html")));
+      System.out.println("LeBron James - " + Arrays.toString(getStats("https://www.basketball-reference.com/players/j/jamesle01.html")));
+      System.out.println("Jaden McDaniels - " + Arrays.toString(getStats("https://www.basketball-reference.com/players/m/mcdanja02.html")));
+      System.out.println("Russel Westbrook - " + Arrays.toString(getStats("https://www.basketball-reference.com/players/w/westbru01.html")));
+      System.out.println("Jonas Valanciunas - " + Arrays.toString(getStats("https://www.basketball-reference.com/players/v/valanjo01.html")));
 
    }
 
