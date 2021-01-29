@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class ReadingWebPage {
    public static void main(String args[]) throws IOException {
 
@@ -63,4 +64,5 @@ public class ReadingWebPage {
       return statBeg + ": " + sub;
 
    }
+
 }
