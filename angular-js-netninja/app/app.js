@@ -6,6 +6,9 @@ myNinjaApp.config(['$routeProvider', function($routeProvider){
             templateUrl: 'view/home.html',
             controller: 'NinjaController'
         })
+        .when('/contact', {
+            templateUrl: 'view/contact.html'
+        })
         .when('/directory', {
             templateUrl: 'view/directory.html',
             controller: 'NinjaController'
