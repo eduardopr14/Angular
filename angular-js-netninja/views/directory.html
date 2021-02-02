@@ -5,7 +5,7 @@
       <button ng-click="order = 'belt'">Order By Belt</button>
 
       <input type="text" ng-model="search" placeholder="Search for a Ninja" />
-      <ul>
+      <ul id="ninja-list">
         <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" 
             ng-show="ninja.available"> 
             <!-- ng-hide faz o contrário, se for true, elemento = hide -->
